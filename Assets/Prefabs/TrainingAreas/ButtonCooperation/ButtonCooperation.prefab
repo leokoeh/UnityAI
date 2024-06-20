@@ -2088,6 +2088,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2018079076677553263}
     - target: {fileID: 6044668106918886088, guid: 4a3c86a65ec4c2648965b758192571fc, type: 3}
+      propertyPath: requireConstantActivation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6044668106918886088, guid: 4a3c86a65ec4c2648965b758192571fc, type: 3}
       propertyPath: requiredButtons.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -2698,6 +2702,10 @@ PrefabInstance:
       propertyPath: linkedDoor
       value: 
       objectReference: {fileID: 2018079076677553263}
+    - target: {fileID: 6044668106918886088, guid: 4a3c86a65ec4c2648965b758192571fc, type: 3}
+      propertyPath: requireConstantActivation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6044668106918886088, guid: 4a3c86a65ec4c2648965b758192571fc, type: 3}
       propertyPath: requiredButtons.Array.size
       value: 2
