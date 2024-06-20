@@ -1,0 +1,194 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5583876498034332488
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4548753430740832145, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 201450366781560699, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 636a1548f754c604188d22529e90cd54, type: 2}
+    - target: {fileID: 1381501905462478117, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_TagString
+      value: Prey
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5581285577411430948, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_TagString
+      value: Prey
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088555638686986819, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_Name
+      value: Prey
+      objectReference: {fileID: 0}
+    - target: {fileID: 8088555638686986819, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_TagString
+      value: Prey
+      objectReference: {fileID: 0}
+    - target: {fileID: 8588096519535212933, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_TagString
+      value: Prey
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8088555638686986819, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3586529899204977945}
+    - targetCorrespondingSourceObject: {fileID: 8088555638686986819, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1073002024126900107}
+    - targetCorrespondingSourceObject: {fileID: 8088555638686986819, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2668283130678753877}
+    - targetCorrespondingSourceObject: {fileID: 8088555638686986819, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -798046522219380857}
+  m_SourcePrefab: {fileID: 100100000, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+--- !u!1 &4412885969042579723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8088555638686986819, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+  m_PrefabInstance: {fileID: 5583876498034332488}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3586529899204977945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412885969042579723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 7
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 2
+      BranchSizes: 01000000
+    VectorActionSize: 
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 0
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: Prey
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!114 &-1073002024126900107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412885969042579723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe07e24350691f45b0db5ddc88857de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 3000
+  character: {fileID: 0}
+  speed: 0
+  hunter: {fileID: 0}
+  randomizeRespawnPrey: 0
+  defaultRepsawnPrey: {x: 0, y: 0, z: 0}
+--- !u!114 &-2668283130678753877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412885969042579723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
+--- !u!114 &-798046522219380857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4412885969042579723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb6b867a41448888c1cd4f99643ad71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: RayPerceptionSensor
+  m_DetectableTags:
+  - Wall
+  - Prey
+  - Hunter
+  m_RaysPerDirection: 5
+  m_MaxRayDegrees: 45
+  m_SphereCastRadius: 0.5
+  m_RayLength: 20
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967291
+  m_ObservationStacks: 1
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
+  m_StartVerticalOffset: 0
+  m_EndVerticalOffset: 0
