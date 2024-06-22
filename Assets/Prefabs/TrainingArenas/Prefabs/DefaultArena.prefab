@@ -430,7 +430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8798669012936480958}
   m_Layer: 0
-  m_Name: DefaultArea
+  m_Name: DefaultArena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

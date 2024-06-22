@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3786536531360923381}
   - component: {fileID: 972568802259677032}
+  - component: {fileID: 5991331142702237833}
   m_Layer: 7
   m_Name: Orange
   m_TagString: Reward
@@ -138,6 +139,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5991331142702237833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7655061014508804496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2795a9e7dcbda4478faf4274b3a1a4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7681400458218729815
 GameObject:
   m_ObjectHideFlags: 0

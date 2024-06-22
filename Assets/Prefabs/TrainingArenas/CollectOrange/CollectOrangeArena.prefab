@@ -265,6 +265,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5991331142702237833, guid: afdc704958203e242b7d0ad9b1a416e0, type: 3}
+      propertyPath: rewardAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7655061014508804496, guid: afdc704958203e242b7d0ad9b1a416e0, type: 3}
       propertyPath: m_Name
       value: Orange
@@ -294,7 +298,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5996397172157125011, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
       propertyPath: m_Name
-      value: CollectOrange
+      value: CollectOrangeArena
       objectReference: {fileID: 0}
     - target: {fileID: 8798669012936480958, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
       propertyPath: m_LocalPosition.x

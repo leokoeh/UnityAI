@@ -61,34 +61,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8798669012936480958, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7803580378876639842}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5996397172157125011, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6583636745541564523}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
---- !u!1 &6778387037401950245 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5996397172157125011, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
-  m_PrefabInstance: {fileID: 947673942085188022}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6583636745541564523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6778387037401950245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed6320de08a0b94195312d938cffc69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hunter: {fileID: 0}
-  prey: {fileID: 0}
-  randomizeHunterRespawn: 0
-  randomizePreyRespawn: 0
-  respawnPositionHunter: {x: 0, y: 0, z: 0}
-  respawnPositionPrey: {x: 0, y: 0, z: 0}
 --- !u!4 &8592294919139320072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8798669012936480958, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}

@@ -21,7 +21,7 @@ public class Button : MonoBehaviour
     public bool requireConstantActivation;
 
     // Door linked to buttons
-    public GameObject linkedDoor;
+    public Door linkedDoor;
 
     [Header("Miscellaneous")]
 
@@ -91,11 +91,11 @@ public class Button : MonoBehaviour
                 }
             }
 
-            linkedDoor.SetActive(false);
+            linkedDoor.isActive = false;
         }
         else
         {
-            linkedDoor.SetActive(true);
+            linkedDoor.isActive = true;
         }
 
     }

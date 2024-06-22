@@ -107,10 +107,10 @@ public class CollectOrange : Agent
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.CompareTag("Reward"))
+        if (collision.gameObject.TryGetComponent<Reward>(out Reward reward))
         {
             // Rewards agent for touching orange and ends episode 
-            AddReward(1f);
+            AddReward(reward.rewardAmount);
             EndEpisode();
         }
         else if (collision.gameObject.CompareTag("Wall"))
