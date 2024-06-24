@@ -2432,6 +2432,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6093269087490706255, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
+      propertyPath: requiredButtons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093269087490706255, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
+      propertyPath: requireSimultaneousActivation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093269087490706255, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
+      propertyPath: requiredButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 2936447332335024287}
+    - target: {fileID: 6093269087490706255, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
+      propertyPath: requiredButtons.Array.data[1]
+      value: 
+      objectReference: {fileID: 295264997434579876}
     - target: {fileID: 9001574244945906992, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
       propertyPath: m_Name
       value: Door3
@@ -2509,6 +2525,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6093269087490706255, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
+      propertyPath: requiredButtons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093269087490706255, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
+      propertyPath: requiredButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 3258811126850018426}
     - target: {fileID: 9001574244945906992, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
       propertyPath: m_Name
       value: Door2
@@ -2586,6 +2610,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6093269087490706255, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
+      propertyPath: doorReward
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093269087490706255, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
+      propertyPath: requiredButtons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6093269087490706255, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
+      propertyPath: requiredButtons.Array.data[0]
+      value: 
+      objectReference: {fileID: 1945361441221619177}
     - target: {fileID: 9001574244945906992, guid: 0f37b5618aae8234992480778bc04e55, type: 3}
       propertyPath: m_Name
       value: Door1

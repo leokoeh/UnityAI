@@ -266,7 +266,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991331142702237833, guid: afdc704958203e242b7d0ad9b1a416e0, type: 3}
+      propertyPath: resetAgent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991331142702237833, guid: afdc704958203e242b7d0ad9b1a416e0, type: 3}
       propertyPath: rewardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991331142702237833, guid: afdc704958203e242b7d0ad9b1a416e0, type: 3}
+      propertyPath: singleCollection
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7655061014508804496, guid: afdc704958203e242b7d0ad9b1a416e0, type: 3}
