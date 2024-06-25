@@ -19,12 +19,15 @@ public class Button : MonoBehaviour
     // Storing button state
     public bool isActive;
 
+    // Whether button can be updated or not
+    public bool isLocked = false;
+
     public Agent lastContact;
 
     private void OnTriggerEnter(Collider collision)
     {
         // Change state if agent steps on button
-        if (collision.gameObject.TryGetComponent<Agent>(out Agent agent))
+        if (collision.gameObject.TryGetComponent<Agent>(out Agent agent) && !isLocked)
         {
             lastContact = agent;
             isActive = true;
@@ -35,7 +38,7 @@ public class Button : MonoBehaviour
     private void OnTriggerExit(Collider collision)
     {
         // Change state if agent steps off button
-        if (collision.gameObject.TryGetComponent<Agent>(out Agent agent))
+        if (collision.gameObject.TryGetComponent<Agent>(out Agent agent) && !isLocked)
         {
             lastContact = null;
             isActive = false;
@@ -53,5 +56,12 @@ public class Button : MonoBehaviour
         {
             buttonDisplayRenderer.material = materialInactive;
         }
+    }
+
+    public void Reset()
+    {
+        isActive = false;
+        isLocked = false;
+        lastContact = null;
     }
 }

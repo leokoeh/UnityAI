@@ -9,6 +9,10 @@ public class AgentBlue : Agent
     public CharacterController character;
     public float speed;
 
+    [Header("Resetter Configuration")]
+    // Ability to link scenario resetter to reward
+    public ScenarioResetter linkedResetter;
+
     public override void OnActionReceived(ActionBuffers actions)
     {
         // Calculate movement vector based on ContinuousActions
@@ -28,5 +32,15 @@ public class AgentBlue : Agent
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         continuousActions[0] = (Input.GetKey(KeyCode.H) ? 1f : 0f) - (Input.GetKey(KeyCode.F) ? 1f : 0f);
         continuousActions[1] = (Input.GetKey(KeyCode.T) ? 1f : 0f) - (Input.GetKey(KeyCode.G) ? 1f : 0f);
+    }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Door"))
+        {
+            // Punishes agent for touching walls and resets scenario
+            AddReward(-0.5f);
+            linkedResetter.Reset();
+        }
     }
 }

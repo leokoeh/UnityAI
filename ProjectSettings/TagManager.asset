@@ -9,6 +9,8 @@ TagManager:
   - Hunter
   - Prey
   - Door
+  - Button
+  - Agent
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -43099954108340640}
   m_Layer: 0
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +50,9 @@ MonoBehaviour:
   buttonDisplayRenderer: {fileID: 4383717240374516111}
   materialActive: {fileID: 2100000, guid: 636a1548f754c604188d22529e90cd54, type: 2}
   materialInactive: {fileID: 2100000, guid: eb49da597877a0d4883de1fb28fbf957, type: 2}
-  requiredButtons: []
+  linkedDoor: {fileID: 0}
+  isActive: 0
+  lastContact: {fileID: 0}
 --- !u!65 &-43099954108340640
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70,8 +72,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1, z: 2}
-  m_Center: {x: 0, y: 0.45, z: 0}
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0.95, z: 0}
 --- !u!1 &5703477534202955560
 GameObject:
   m_ObjectHideFlags: 0

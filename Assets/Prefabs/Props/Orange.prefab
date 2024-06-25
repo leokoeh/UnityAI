@@ -152,7 +152,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rewardAmount: 0
-  resetAgent: 0
+  endAgentEpisode: 0
+  singleCollection: 1
+  linkedResetter: {fileID: 0}
 --- !u!1 &7681400458218729815
 GameObject:
   m_ObjectHideFlags: 0

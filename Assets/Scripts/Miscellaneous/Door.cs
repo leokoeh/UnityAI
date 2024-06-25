@@ -10,13 +10,13 @@ public class Door : MonoBehaviour
     public GameObject door;
     public bool isActive;
 
-    // Currently non-functional reward system
+    [Header("Reward Configuration")]
 
-    // [Header("Reward Configuration")]
     // Reward that will be given to each agent that stepped on a linked button when the door opens
-    // public int doorReward;
+    public int doorReward;
+
     // Agents that already collected the door reward
-    // public List<Agent> blacklist = new List<Agent>();
+    public List<Agent> blacklist = new List<Agent>();
 
     [Header("Button Configuration")]
     // List storing all linked buttons
@@ -27,6 +27,17 @@ public class Door : MonoBehaviour
 
     // Whether door requires constant or only singular activation to remain open
     public bool requireConstantActivation;
+
+    public void Reset()
+    {
+        foreach (Button button in requiredButtons)
+        {
+            button.Reset();
+        }
+
+        blacklist.Clear();
+        CheckLinks();
+    }
 
     public void CheckLinks()
     {
@@ -66,49 +77,28 @@ public class Door : MonoBehaviour
         {
             foreach (Button button in requiredButtons)
             {
-                // ISSUE: Function is called multiple times in a very short time frame and thus leads to the blacklist not being able to keep up.
-
-                /*
                 Agent agent = button.lastContact;
 
                 // Check if agent is eligible for reward
                 if (!blacklist.Contains(agent))
                 {
                     blacklist.Add(agent);
-                    Debug.LogWarning(blacklist[0]);
                     agent.AddReward(doorReward);
                 }
-                else
-                {
-                    Debug.Log(agent + " is already in the blacklist.");
-
-                }*/
 
                 if (requireConstantActivation == false)
                 {
-                    // Disable all linked butons if constant activation is not required
-                    button.isActive = true;
-                    button.gameObject.GetComponent<Collider>().enabled = false;
-
+                    // Lock all linked butons if constant activation is not required
+                    button.isLocked = true;
                 }
+            }
 
-
-            } 
             isActive = false;
         }
         else
         {
             isActive = true;
         }
-
-        if (isActive)
-        {
-            door.SetActive(true);
-
-        }
-        else
-        {
-            door.SetActive(false);
-        }
+        door.SetActive(isActive);
     }
 }

@@ -5,6 +5,7 @@ using Unity.MLAgents;
 
 public class Reward : MonoBehaviour
 {
+    [Header("Reward Configuration")]
     // Amount of reward added when collected by an agent
     public float rewardAmount;
 
@@ -13,6 +14,10 @@ public class Reward : MonoBehaviour
 
     // If reward gets disabled after collection
     public bool singleCollection;
+
+    [Header("Resetter Configuration")]
+    // Ability to link scenario resetter to reward
+    public ScenarioResetter linkedResetter;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -31,6 +36,11 @@ public class Reward : MonoBehaviour
             {
                 // Disable the game object
                 transform.gameObject.SetActive(false);
+            }
+
+            if (linkedResetter)
+            {
+                linkedResetter.Reset();
             }
         }
     }

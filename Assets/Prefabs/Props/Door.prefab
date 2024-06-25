@@ -99,7 +99,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -204,7 +204,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -309,7 +309,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -362,5 +362,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a78859ffaea6941b6d9ed774b429e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
   door: {fileID: 3868285075055457114}
+  isActive: 1
+  doorReward: 0
+  blacklist: []
+  requiredButtons: []
+  requireSimultaneousActivation: 0
+  requireConstantActivation: 0
