@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8088555638686986819, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
       propertyPath: m_Name
-      value: CollectOrange
+      value: Singleplayer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -127,16 +127,16 @@ MonoBehaviour:
   MaxStep: 1000
   character: {fileID: 1559064151545239666}
   speed: 5
+  jumpStrength: 30
   orange: {fileID: 0}
-  randomizeOrangePosition: 0
-  randomizeAgentPosition: 0
   agentRespawnPosition: {x: 0, y: 0, z: 0}
   orangeRespawnPosition: {x: 0, y: 0, z: 0}
+  randomizeAgentPosition: 0
+  randomizeOrangePosition: 0
   barrier: {fileID: 0}
   barrierDoSpawn: 0
   barrierMinDistance: 0
-  barrierMaxSpawnAttempts: 0
-  barrierPositionAnchor: {fileID: 0}
+  barrierMaxSpawnChecks: 0
 --- !u!114 &-8068839202280857653
 MonoBehaviour:
   m_ObjectHideFlags: 0

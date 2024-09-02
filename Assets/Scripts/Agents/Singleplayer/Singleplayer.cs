@@ -3,11 +3,14 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
-public class CollectOrange : Agent
+public class Singleplayer : Agent
 {
+    private const float GRAVITY = -9.81f;
+
     [Header("Agent Configuration")]
     public CharacterController character;
     public float speed;
+    public float jumpStrength;
 
     [Header("Orange Configuration")]
     public GameObject orange;
@@ -91,10 +94,10 @@ public class CollectOrange : Agent
         float moveZ = actions.ContinuousActions[1];
         Vector3 move = new Vector3(moveX, 0, moveZ);
 
-        // Move character based on movement vector
         Physics.SyncTransforms();
+        // Move character based on movement vector
         character.Move(move * speed * Time.deltaTime);
-        transform.LookAt(transform.position + move);
+        transform.LookAt((transform.position + move) * Time.deltaTime);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
