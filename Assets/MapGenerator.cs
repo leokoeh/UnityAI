@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
@@ -7,46 +8,99 @@ public class MapGenerator : MonoBehaviour
     public int maxSizeX;
     public int maxSizeY;
     public int sizeDeviationMax;
-    public GameObject floorTile;
+
+    public GameObject roomTile;
+    public GameObject hallTile;
     public int tileSize;
 
     public int roomCountMax;
     public int roomCountMin;
 
     public Vector2Int mapSize;
-    private List<Vector2Int> occupiedPositions;
+    private List<Tile> tileList;
     private List<Room> roomList;
 
-    public class Room
+    public class Tile
     {
-        public Vector2Int roomDimensions { get; set; }
-        public List<Vector2Int> roomTiles { get; set; }
-        public MapGenerator MapGenerator { get; set; }
-        public GameObject floorTile { get; set; }
-        public int tileSize { get; set; }
-        
-        public Room(Vector2Int position, MapGenerator mapGenerator)
-        {
+        public int Type;
+        public Vector2Int Position;
+        public MapGenerator MapGenerator;
+        public Room Room;
+        public GameObject Prefab;
+        public GameObject TileModel;
 
-            roomDimensions = new Vector2Int(1, 1);
-            roomTiles = new List<Vector2Int>();
+        public Tile(int type, Vector2Int position, Room room, MapGenerator mapGenerator)
+        {
+            Type = type;
+            Position = position;
+            Room = room;
             MapGenerator = mapGenerator;
-            floorTile = mapGenerator.floorTile;
-            tileSize = mapGenerator.tileSize;
-            mapGenerator.roomList.Add(this);
+
+            switch (type)
+            {
+                case 0:
+                    Prefab = mapGenerator.roomTile; break;
+                case 1:
+                    Prefab = mapGenerator.hallTile; break;
+            }
 
             PlaceTile(position);
 
         }
 
+        public void Remove()
+        {
+            MapGenerator.RemoveTile(this);
+            Destroy(TileModel);
+        }
+
         public void PlaceTile(Vector2Int position)
         {
-            if (MapGenerator.CheckTileVacancy(position))
+            MapGenerator.AddTile(this);
+            TileModel = Instantiate(Prefab, new Vector3(position.x, 0, position.y) * MapGenerator.tileSize, Quaternion.identity);
+
+            if (Room != null) Room.AddTile(this);
+            if (Room != null) TileModel.GetComponent<Renderer>().material.color = Room.roomColor;
+
+        }
+
+    }
+
+    public class Room
+    {
+        public Vector2Int roomDimensions = new Vector2Int(1, 1);
+        public List<Tile> roomTiles;
+        public MapGenerator MapGenerator;
+        public GameObject floorTile;
+        public int tileSize;
+        public Color roomColor;
+
+        public List<Vector2Int> expandableDirections = new List<Vector2Int> { new Vector2Int(1, 0), new Vector2Int(0, 1), new Vector2Int(-1, 0), new Vector2Int(0, -1)};
+        public bool canExpand = true;
+
+        public Room(MapGenerator mapGenerator)
+        {
+            roomTiles = new List<Tile>();
+            MapGenerator = mapGenerator;
+            
+            MapGenerator.AddRoom(this);
+
+            roomColor = new Color(Random.value, Random.value, Random.value);
+        }
+
+        public void Remove()
+        {
+            foreach(Tile tile in roomTiles)
             {
-                MapGenerator.AddTile(position);
-                roomTiles.Add(position);
-                Instantiate(floorTile, new Vector3(position.x, 0, position.y) * tileSize, Quaternion.identity);
+                tile.Remove();
             }
+
+            MapGenerator.RemoveRoom(this);
+        }
+
+        public void AddTile(Tile tile)
+        {
+            roomTiles.Add(tile);
         }
 
         public Vector2Int GetMinSize()
@@ -54,8 +108,9 @@ public class MapGenerator : MonoBehaviour
             int minX = int.MaxValue;
             int minY = int.MaxValue;
 
-            foreach(Vector2Int position in roomTiles)
+            foreach(Tile tile in roomTiles)
             {
+                Vector2Int position = tile.Position;
                 if (position.x < minX) minX = position.x;
                 if (position.y < minY) minY = position.y;
             }
@@ -68,8 +123,9 @@ public class MapGenerator : MonoBehaviour
             int maxX = int.MinValue;
             int maxY = int.MinValue;
 
-            foreach (Vector2Int position in roomTiles)
+            foreach (Tile tile in roomTiles)
             {
+                Vector2Int position = tile.Position;
                 if (position.x > maxX) maxX = position.x;
                 if (position.y > maxY) maxY = position.y;
             }
@@ -77,62 +133,151 @@ public class MapGenerator : MonoBehaviour
             return new Vector2Int(maxX, maxY);
         }
 
-        public void AttemptExpansion(Vector2Int direction)
-        {
-            List<Vector2Int> temporaryTiles = new List<Vector2Int>();
-            bool granted = true;
 
-            foreach (Vector2Int position in roomTiles)
+        public void AttemptExpansion()
+        {
+            if(!canExpand) return;
+
+            Vector2Int direction = expandableDirections[Random.Range(0, expandableDirections.Count)];
+
+            List<Vector2Int> temporaryTiles = new List<Vector2Int>();
+
+            foreach (Tile tile in roomTiles)
             {
+                //Debug.Log($"Checking Tile {tile} at {tile.Position}. Target: {tile.Position + direction}");
+                Vector2Int position = tile.Position;
                 Vector2Int max = GetMaxSize();
                 Vector2Int min = GetMinSize();
 
-                int directionX = direction.x;
-                int directionY = direction.y;
-
-                if (position.x == max.x && direction.x == 1 || position.x == min.x && direction.x == -1 || position.y == max.y && direction.y == 1 || position.y == min.y && direction.y == -1)
+                // Filter out all tiles that are on the edge
+                if (
+                    position.x == max.x && 
+                    direction.x == 1 || 
+                    
+                    position.x == min.x && 
+                    direction.x == -1 || 
+                    
+                    position.y == max.y && 
+                    direction.y == 1 || 
+                    
+                    position.y == min.y && 
+                    direction.y == -1)
                 {
-                    // Expand
-                    if (MapGenerator.CheckTileVacancy(position + direction) && (MapGenerator.CheckTileVacancy(position + direction * 2))) {
 
-                        if (directionX != 0)
+                    Vector2Int target = position + direction;
+                    if (MapGenerator.CheckNeighborVacancy(target, this, tile))
+                    {
+                        if((direction.x != 0 && roomDimensions.x + 1 <= roomDimensions.y * 2) ||
+                        (direction.y != 0 && roomDimensions.y + 1 <= roomDimensions.x * 2))
                         {
-                            if(MapGenerator.CheckTileVacancy(position + direction + new Vector2Int(0,1)) && MapGenerator.CheckTileVacancy(position + direction + new Vector2Int(0, -1)) && roomDimensions.x + 1 <= roomDimensions.y * 2)
-                            {
-                                temporaryTiles.Add(position + direction);
-                                //Debug.Log("Expansion granted.");
-                            }
-                            else { granted = false; break; }
-                        }
+                            temporaryTiles.Add(target);
 
-                        if (directionY != 0)
-                        {
-                            if (MapGenerator.CheckTileVacancy(position + direction + new Vector2Int(1, 0)) && MapGenerator.CheckTileVacancy(position + direction + new Vector2Int(-1, 0)) && roomDimensions.y + 1 <= roomDimensions.x * 2)
-                            {
-                                temporaryTiles.Add(position + direction);
-                                //Debug.Log("Expansion granted.");
-                            }
-                            else { granted = false; break; }
-                        }
-
+                        } else { return; }
                     }
-                    else { granted = false; break; }
+                    else
+                    {
+                        expandableDirections.Remove(direction);
+                        if(expandableDirections.Count == 0) canExpand = false;
+                        return;
+                    }
                 }
-            }
-            if(granted)
-            {
-                foreach (Vector2Int newPosition in temporaryTiles)
-                {
-                    roomDimensions += new Vector2Int(Mathf.Abs(direction.x), Mathf.Abs(direction.y));
-                    PlaceTile(newPosition);
-                }
-            } else
-            {
-                //Debug.Log("Expansion denied.");
             }
 
+            roomDimensions += new Vector2Int(Mathf.Abs(direction.x), Mathf.Abs(direction.y));
+
+            foreach (Vector2Int newPosition in temporaryTiles)
+            {                    
+                //Debug.Log("Spawning!");
+                Tile newTile = new Tile(0, newPosition, this, MapGenerator);
+            }
         }
 
+        public void OutlineHallways()
+        {
+            foreach(Tile tile in roomTiles)
+            {
+                Vector2Int position = tile.Position;
+                Vector2Int max = GetMaxSize();
+                Vector2Int min = GetMinSize();
+
+                if (position.x == max.x)
+                {
+                    Vector2Int target = position + new Vector2Int(1, 0);
+                    if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target))
+                    {
+                        Tile newHallway = new Tile(1, target, null, MapGenerator);
+                    }
+                }
+
+                if(position.x == min.x)
+                {
+                    Vector2Int target = position + new Vector2Int(-1, 0);
+                    if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target))
+                    {
+                        Tile newHallway = new Tile(1, target, null, MapGenerator);
+                    }
+                }
+
+                if (position.y == max.y)
+                {
+                    Vector2Int target = position + new Vector2Int(0, 1);
+                    if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target))
+                    {
+                        Tile newHallway = new Tile(1, target, null, MapGenerator);
+                    }
+                }
+
+                if (position.y == min.y)
+                {
+                    Vector2Int target = position + new Vector2Int(0, -1);
+                    if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target))
+                    {
+                        Tile newHallway = new Tile(1, target, null, MapGenerator);
+                    }
+
+                }
+
+                if (position.x == max.x && position.y == max.y)
+                {
+                    Vector2Int target = position + new Vector2Int(1, 1);
+                    if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target))
+                    {
+                        Tile newHallway = new Tile(1, target, null, MapGenerator);
+                    }
+
+                }
+
+                if (position.x == max.x && position.y == min.y)
+                {
+                    Vector2Int target = position + new Vector2Int(1, -1);
+                    if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target))
+                    {
+                        Tile newHallway = new Tile(1, target, null, MapGenerator);
+                    }
+
+                }
+
+                if (position.x == min.x && position.y == max.y)
+                {
+                    Vector2Int target = position + new Vector2Int(-1, 1);
+                    if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target))
+                    {
+                        Tile newHallway = new Tile(1, target, null, MapGenerator);
+                    }
+
+                }
+
+                if (position.x == min.x && position.y == min.y)
+                {
+                    Vector2Int target = position + new Vector2Int(-1, -1);
+                    if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target))
+                    {
+                        Tile newHallway = new Tile(1, target, null, MapGenerator);
+                    }
+
+                }
+            }
+        }
     }
 
     // Start is called before the first frame update
@@ -140,7 +285,7 @@ public class MapGenerator : MonoBehaviour
     {
         mapSize = new Vector2Int(maxSizeX + Random.Range(-sizeDeviationMax, sizeDeviationMax), maxSizeY + Random.Range(-sizeDeviationMax, sizeDeviationMax));
 
-        occupiedPositions = new List<Vector2Int>();
+        tileList = new List<Tile>();
         roomList = new List<Room>();
 
         // Place Rooms
@@ -148,64 +293,124 @@ public class MapGenerator : MonoBehaviour
         {
             Vector2Int spawnPosition = new Vector2Int(Random.Range(0, mapSize.x), Random.Range(0, mapSize.y));
 
-            bool allowPlacement = true;
+            Room newRoom = new Room(this);
+            Tile newTile = new Tile(0, spawnPosition, newRoom, this);
 
-            for(int a=-1; a < 2; a++)
+            if (!CheckNeighborVacancy(spawnPosition, newRoom, newTile))
             {
-                for(int b=-1; b < 2; b++)
+                Debug.LogWarning($"Faulty Generation at position {spawnPosition}. Neighbor Vacancy Check failed.");
+                newRoom.Remove();
+                //newTile.TileModel.transform.position = new Vector3(0, 100, 0);
+
+            }
+
+        }
+
+        IEnumerator Expansion() {
+
+            for (int i = 0; i < 100; i++)
+            {
+                foreach (Room room in roomList)
                 {
-                    if(!CheckTileVacancy(spawnPosition + new Vector2Int(a,b)))
+                    room.AttemptExpansion(); 
+
+
+                }
+            }
+
+            yield return new WaitForSeconds(0f);
+
+            List<Room> removingList = new List<Room>();
+
+            foreach (Room room in roomList)
+            {
+                room.OutlineHallways();
+                if(room.roomDimensions.x * room.roomDimensions.y < 9)
+                {
+                    removingList.Add(room);
+                }
+            }
+
+            foreach (Room room in removingList)
+            {
+                room.Remove();
+            }
+
+        }
+    
+        StartCoroutine(Expansion());
+    }
+
+    public void AddTile(Tile tile)
+    {
+        tileList.Add(tile);
+    }
+
+    public void RemoveTile(Tile tile)
+    {
+        tileList.Remove(tile);
+    }
+
+    public void AddRoom(Room room)
+    {
+        roomList.Add(room);
+    }
+
+    public void RemoveRoom(Room room)
+    {
+        roomList.Remove(room);
+    }
+
+    public bool CheckNeighborVacancy(Vector2Int position, Room room, Tile tile)
+    {
+        for (int i = -1; i < 2; i++)
+        {
+            for (int j = -1; j < 2; j++)
+            {
+                Vector2Int checkPosition = position + new Vector2Int(i, j);
+
+                if(!CheckPositionInBounds(checkPosition))
+                {
+                    // Filter out all positions out of bounds
+                    return false;
+                }
+
+                Tile neighborTile = GetTileFromPosition(checkPosition);
+
+                if (neighborTile != null && neighborTile != tile)
+                {
+
+                    if (neighborTile.Room != room)
                     {
-                        allowPlacement = false;
-                        break;
+                        // Filter out all tiles that are not part of the own room
+                        return false;
                     }
                 }
             }
-
-            if(allowPlacement)
-            {
-                Room newRoom = new Room(spawnPosition, this);
-                Instantiate(floorTile, new Vector3(spawnPosition.x, 10, spawnPosition.y) * tileSize, Quaternion.identity);
-            }
-
         }
 
-        bool roomsCanGrow = true;
-
-        for (int i = 0; i < 500 ; i++)
-        {
-            foreach (Room room in roomList)
-            {
-                int random = Random.Range(0, 3);
-                switch(random)
-                {
-                    case 0:
-                        room.AttemptExpansion(new Vector2Int(1, 0));
-                        break;
-                    case 1:
-                        room.AttemptExpansion(new Vector2Int(0, 1));
-                        break;
-                    case 2:
-                        room.AttemptExpansion(new Vector2Int(-1, 0));
-                        break;
-                    case 3:
-                        room.AttemptExpansion(new Vector2Int(0, -1));
-                        break;
-                }
-
-            }
-
-        }
-
+        return true;
     }
 
-    public void AddTile(Vector2Int position)
+    public bool CheckPositionInBounds(Vector2Int position)
     {
-        occupiedPositions.Add(position);
+        return (
+            position.x >= 0 &&
+            position.x <= mapSize.x &&
+            position.y >= 0 &&
+            position.y <= mapSize.y);
     }
 
-    public bool CheckTileVacancy(Vector2Int position)
+    public bool CheckPositionVacancy(Vector2Int position)
     {
-        return (!occupiedPositions.Contains(position) && position.x >= 0 && position.x <= mapSize.x && position.y >= 0 && position.y <= mapSize.y);
+        return (!tileList.Any(obj => obj.Position == position));
+    }
+
+    public Tile GetTileFromPosition(Vector2Int position)
+    {
+        Tile foundTile = tileList.FirstOrDefault(item => item.Position == position);
+
+        if(foundTile != null) { return foundTile; } else { return null; }
+
     }
 }

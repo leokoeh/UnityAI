@@ -157,8 +157,8 @@ MonoBehaviour:
   sizeDeviationMax: 5
   floorTile: {fileID: 217285536241892279, guid: f77aded9e1f30e7489abe50dc83c9ef9, type: 3}
   tileSize: 5
-  roomCountMax: 8
-  roomCountMin: 5
+  roomCountMax: 10
+  roomCountMin: 8
   mapSize: {x: 0, y: 0}
 --- !u!4 &28425581
 Transform:
