@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,13 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d7cf0e06ebd474dbe006dd5726134e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSizeX: 25
-  maxSizeY: 25
+  maxSizeX: 10
+  maxSizeY: 10
   sizeDeviationMax: 5
-  roomTile: {fileID: 3098606125423694395, guid: e09c0986695cebf46b3789ded7261046, type: 3}
-  hallTile: {fileID: 3098606125423694395, guid: d922df606c7926f4dbad307fa8caedd1, type: 3}
-  tileSize: 5
-  roomCountMax: 15
+  TilePrefab: {fileID: 3098606125423694395, guid: d922df606c7926f4dbad307fa8caedd1, type: 3}
+  RoomPrefab: {fileID: 3594541652756282338, guid: 5f4badf73c8ab3147b8e815db91f1885, type: 3}
+  roomCountMax: 8
   roomCountMin: 5
   mapSize: {x: 0, y: 0}
 --- !u!4 &28425581
