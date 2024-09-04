@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MapGenerator : MonoBehaviour
 {
@@ -28,6 +30,13 @@ public class MapGenerator : MonoBehaviour
         public Room Room;
         public GameObject Prefab;
         public GameObject TileModel;
+
+        public GameObject NorthWall;
+        public GameObject EastWall;
+        public GameObject SouthWall;
+        public GameObject WestWall;
+
+        public bool HasDoorway = false;
 
         public Tile(int type, Vector2Int position, Room room, MapGenerator mapGenerator)
         {
@@ -60,8 +69,35 @@ public class MapGenerator : MonoBehaviour
             TileModel = Instantiate(Prefab, new Vector3(position.x, 0, position.y) * MapGenerator.tileSize, Quaternion.identity);
 
             if (Room != null) Room.AddTile(this);
-            if (Room != null) TileModel.GetComponent<Renderer>().material.color = Room.roomColor;
+            //if (Room != null) TileModel.GetComponent<Renderer>().material.color = Room.roomColor;
 
+            NorthWall = TileModel.transform.Find("WallNorth").gameObject;
+            EastWall = TileModel.transform.Find("WallEast").gameObject;
+            SouthWall = TileModel.transform.Find("WallSouth").gameObject;
+            WestWall = TileModel.transform.Find("WallWest").gameObject;
+        }
+
+        public void UpdateWalls()
+        {
+            for(int i = -1; i < 2; i++)
+            {
+                for(int j = -1; j < 2; j++)
+                {
+                    Vector2Int direction = new Vector2Int(i, j);
+                    Vector2Int checkPosition = Position + direction;
+                    Tile currentTile = MapGenerator.GetTileFromPosition(checkPosition);
+
+                    if (currentTile == null) continue;
+
+                    if (currentTile.Type == Type)
+                    {
+                        if(direction == Vector2Int.up) Destroy(NorthWall);
+                        if (direction == Vector2Int.down) Destroy(SouthWall);
+                        if (direction == Vector2Int.right) Destroy(EastWall);
+                        if (direction == Vector2Int.left) Destroy(WestWall);
+                    } 
+                }
+            }
         }
 
     }
@@ -200,6 +236,11 @@ public class MapGenerator : MonoBehaviour
                 Vector2Int max = GetMaxSize();
                 Vector2Int min = GetMinSize();
 
+                // Vector Up (0, 1) = North
+                // Vector Right (1, 0) = East
+                // Vector Down (0, -1) = South
+                // Vector Left (-1, 0) = West
+
                 if (position.x == max.x)
                 {
                     Vector2Int target = position + new Vector2Int(1, 0);
@@ -298,12 +339,8 @@ public class MapGenerator : MonoBehaviour
 
             if (!CheckNeighborVacancy(spawnPosition, newRoom, newTile))
             {
-                Debug.LogWarning($"Faulty Generation at position {spawnPosition}. Neighbor Vacancy Check failed.");
                 newRoom.Remove();
-                //newTile.TileModel.transform.position = new Vector3(0, 100, 0);
-
             }
-
         }
 
         IEnumerator Expansion() {
@@ -313,7 +350,6 @@ public class MapGenerator : MonoBehaviour
                 foreach (Room room in roomList)
                 {
                     room.AttemptExpansion(); 
-
 
                 }
             }
@@ -334,6 +370,11 @@ public class MapGenerator : MonoBehaviour
             foreach (Room room in removingList)
             {
                 room.Remove();
+            }
+
+            foreach(Tile tile in tileList)
+            {
+                tile.UpdateWalls();
             }
 
         }
