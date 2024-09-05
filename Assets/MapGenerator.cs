@@ -39,40 +39,34 @@ public class MapGenerator : MonoBehaviour
 
             GameObject newRoomModel = Instantiate(RoomPrefab, new Vector3(spawnWorldPosition.x, 0, spawnWorldPosition.y), Quaternion.identity);
             Room newRoom = newRoomModel.GetComponent<Room>();
-            newRoom.MapGenerator = this;
+            newRoom.SetMapGenerator(this);
 
             GameObject newTileModel = Instantiate(TilePrefab, new Vector3(spawnWorldPosition.x, 0, spawnWorldPosition.y), Quaternion.identity);
             Tile newTile = newTileModel.GetComponent<Tile>();
-            newTile.Type = 0;
-            newTile.Position = spawnPosition;
-            newTile.Room = newRoom;
-            newTile.MapGenerator = this;
+            newTile.SetPosition(spawnPosition);
+            newTile.SetRoom(newRoom);
+            newTile.SetMapGenerator(this);
 
             roomList.Add(newRoom);
             tileList.Add(newTile);
             newRoom.AddTile(newTile);
 
             if (!CheckNeighborVacancy(spawnPosition, newTile)) newRoom.Remove();
-
         }
 
         List<Room> removingList = new List<Room>();
 
         for (int i = 0; i < 500; i++)
         {
-            foreach (Room room in roomList)
-            {
-                room.AttemptExpansion(); 
-            }
+            foreach (Room room in roomList) room.AttemptExpansion();
+
         }
 
         foreach (Room room in roomList)
         {
+            Vector2Int roomDimensions = room.GetDimensions();
             room.OutlineHallways();
-            if(room.roomDimensions.x * room.roomDimensions.y < 6)
-            {
-                removingList.Add(room);
-            }
+            if(roomDimensions.x * roomDimensions.y < 6) removingList.Add(room);
         }
 
         foreach (Room room in removingList) room.Remove();
@@ -106,7 +100,7 @@ public class MapGenerator : MonoBehaviour
             for (int j = -1; j < 2; j++)
             {
                 Vector2Int checkPosition = position + new Vector2Int(i, j);
-                Room room = tile.Room;
+                Room room = tile.GetRoom();
 
                 Tile neighborTile = GetTileFromPosition(checkPosition);
 
@@ -120,8 +114,7 @@ public class MapGenerator : MonoBehaviour
                 if (neighborTile == tile) continue;
 
                 // Filter out all tiles that are not part of the own room
-                if (neighborTile.Room != room) return false;
-
+                if (neighborTile.GetRoom() != room) return false;
             }
         }
 
@@ -139,12 +132,12 @@ public class MapGenerator : MonoBehaviour
 
     public bool CheckPositionVacancy(Vector2Int position)
     {
-        return (!tileList.Any(obj => obj.Position == position));
+        return (!tileList.Any(obj => obj.GetPosition() == position));
     }
 
     public Tile GetTileFromPosition(Vector2Int position)
     {
-        Tile foundTile = tileList.FirstOrDefault(item => item.Position == position);
+        Tile foundTile = tileList.FirstOrDefault(obj => obj.GetPosition() == position);
 
         if(foundTile != null) { return foundTile; } else { return null; }
 

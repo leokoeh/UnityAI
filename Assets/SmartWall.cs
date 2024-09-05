@@ -4,22 +4,21 @@ using UnityEngine;
 
 public class SmartWall : MonoBehaviour
 {
-    public GameObject Wall;
-    public GameObject Doorway;
-    private int Mode;
+    [SerializeField] private GameObject wall;
+    [SerializeField] private GameObject doorway;
 
     public void SetMode(int mode)
     {
-        Mode = mode;
+        switch (mode) {
+            case 0:
+                wall.SetActive(true);
+                doorway.SetActive(false);
+                break;
 
-        if (Mode == 0)
-        {
-            Wall.SetActive(true);
-            Doorway.SetActive(false);
-        }else
-        {
-            Wall.SetActive(false);
-            Doorway.SetActive(true);
+            case 1:
+                wall.SetActive(false);
+                doorway.SetActive(true);
+                break;
         }
     }
 }

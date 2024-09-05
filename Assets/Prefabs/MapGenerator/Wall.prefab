@@ -119,5 +119,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tile: {fileID: 0}
-  MaterialRoom: {fileID: 2100000, guid: a58224d50c478514fb7b6009ce99c7aa, type: 2}
+  MaterialRoom: {fileID: 2100000, guid: ce5e8046832f4884bb319d1ceadb4819, type: 2}
   MaterialHall: {fileID: 2100000, guid: ce5e8046832f4884bb319d1ceadb4819, type: 2}
+  Renderer: {fileID: 2339240702533286658}

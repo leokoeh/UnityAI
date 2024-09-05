@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479b2e77be8c61d4086e66f460651ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Wall: {fileID: 5257790132060834388}
-  Doorway: {fileID: 9186992607368625947}
+  wall: {fileID: 5257790132060834388}
+  doorway: {fileID: 9186992607368625947}
 --- !u!1001 &2934818102722367017
 PrefabInstance:
   m_ObjectHideFlags: 0

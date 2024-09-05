@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class MaterialChanger : MonoBehaviour
 {
-    public Tile Tile;
-    public Material MaterialRoom;
-    public Material MaterialHall;
-
-    private Renderer Renderer;
+    [SerializeField] private Tile Tile;
+    [SerializeField] private Material MaterialRoom;
+    [SerializeField] private Material MaterialHall;
+    [SerializeField] private Renderer Renderer;
 
     void Start()
     {
-        Renderer = transform.GetComponent<Renderer>();
-        int type = Tile.Type;
-
-        switch (type)
+        switch (Tile.GetRoomType())
         {
             case 0:
                 Renderer.material = MaterialRoom;

@@ -4,31 +4,21 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public Vector2Int roomDimensions = new Vector2Int(1, 1);
-    public List<Tile> roomTiles = new List<Tile>();
-    public MapGenerator MapGenerator;
-    public GameObject floorTile;
-    public int tileSize;
-    public Color roomColor;
-    public GameObject tilePrefab;
+    private List<Tile> roomTiles = new List<Tile>();
+    [SerializeField] private int tileSize;
+    [SerializeField] private GameObject tilePrefab;
 
-    private List<Vector2Int> expandableDirections = new List<Vector2Int>(){ new Vector2Int(1, 0), new Vector2Int(0, 1), new Vector2Int(-1, 0), new Vector2Int(0, -1) };
-    public bool canExpand = true;
+    private Vector2Int roomDimensions = new Vector2Int(1, 1);
 
-    void Start()
-    {
-        tilePrefab = MapGenerator.TilePrefab;
-
-    }
+    private MapGenerator mapGenerator;
+    private List<Vector2Int> expandableDirections = new List<Vector2Int>(){ Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left};
+    private bool canExpand = true;
 
     public void Remove()
     {
-        foreach (Tile tile in roomTiles)
-        {
-            tile.Remove();
-        }
+        foreach (Tile tile in roomTiles) tile.Remove();
 
-        MapGenerator.RemoveRoom(this);
+        mapGenerator.RemoveRoom(this);
         Destroy(transform.gameObject);
     }
 
@@ -37,29 +27,28 @@ public class Room : MonoBehaviour
         roomTiles.Add(tile);
     }
 
-    public Vector2Int GetMinSize()
+    private Vector2Int GetMinSize()
     {
         int minX = int.MaxValue;
         int minY = int.MaxValue;
 
         foreach (Tile tile in roomTiles)
         {
-            Vector2Int position = tile.Position;
+            Vector2Int position = tile.GetPosition();
             if (position.x < minX) minX = position.x;
             if (position.y < minY) minY = position.y;
         }
 
         return new Vector2Int(minX, minY);
     }
-
-    public Vector2Int GetMaxSize()
+    private Vector2Int GetMaxSize()
     {
         int maxX = int.MinValue;
         int maxY = int.MinValue;
 
         foreach (Tile tile in roomTiles)
         {
-            Vector2Int position = tile.Position;
+            Vector2Int position = tile.GetPosition();
             if (position.x > maxX) maxX = position.x;
             if (position.y > maxY) maxY = position.y;
         }
@@ -67,20 +56,35 @@ public class Room : MonoBehaviour
         return new Vector2Int(maxX, maxY);
     }
 
+    public Vector2Int GetDimensions()
+    {
+        return roomDimensions;
+    }
+
+    public bool GetCanExpand()
+    {
+        return canExpand;
+    }
+
+    public void SetMapGenerator(MapGenerator mapGen)
+    {
+        mapGenerator = mapGen;
+    }
 
     public void AttemptExpansion()
     {
 
         if (!canExpand) return;
+
         Vector2Int direction = expandableDirections[Random.Range(0, expandableDirections.Count)];
-        List<Vector2Int> temporaryTiles = new List<Vector2Int>();
+        List<Vector2Int> temporaryPositions = new List<Vector2Int>();
+
+        Vector2Int max = GetMaxSize();
+        Vector2Int min = GetMinSize();
 
         foreach (Tile tile in roomTiles)
         {
-            //Debug.Log($"Checking Tile {tile} at {tile.Position}. Target: {tile.Position + direction}");
-            Vector2Int position = tile.Position;
-            Vector2Int max = GetMaxSize();
-            Vector2Int min = GetMinSize();
+            Vector2Int position = tile.GetPosition();
 
             // Filter out all tiles that are on the edge
             if (
@@ -98,15 +102,15 @@ public class Room : MonoBehaviour
             {
 
                 Vector2Int target = position + direction;
-                if (MapGenerator.CheckNeighborVacancy(target, tile))
+                if (mapGenerator.CheckNeighborVacancy(target, tile))
                 {
                     if ((direction.x != 0 && roomDimensions.x + 1 <= roomDimensions.y * 2) ||
                     (direction.y != 0 && roomDimensions.y + 1 <= roomDimensions.x * 2))
                     {
-                        temporaryTiles.Add(target);
+                        temporaryPositions.Add(target);
 
                     }
-                    else {return; }
+                    else {return;}
                 }
                 else
                 {
@@ -119,31 +123,32 @@ public class Room : MonoBehaviour
 
         roomDimensions += new Vector2Int(Mathf.Abs(direction.x), Mathf.Abs(direction.y));
 
-        foreach (Vector2Int newPosition in temporaryTiles)
+        foreach (Vector2Int newPosition in temporaryPositions)
         {
             GameObject newTileModel = Instantiate(tilePrefab, new Vector3(newPosition.x * 5, 0, newPosition.y * 5), Quaternion.identity);
             Tile newTile = newTileModel.GetComponent<Tile>();
-            newTile.Type = 0;
-            newTile.Position = newPosition;
-            newTile.Room = this;
-            newTile.MapGenerator = MapGenerator;
+            newTile.SetType(0);
+            newTile.SetPosition(newPosition);
+            newTile.SetRoom(this);
+            newTile.SetMapGenerator(mapGenerator);
 
             AddTile(newTile);
-            MapGenerator.AddTile(newTile);
+            mapGenerator.AddTile(newTile);
         }
     }
 
     public void OutlineHallways()
     {
+
         List<Vector2Int> doorwayCandidateList = new List<Vector2Int>();
+
+        Vector2Int max = GetMaxSize();
+        Vector2Int min = GetMinSize();
 
         foreach (Tile tile in roomTiles)
         {
-            Vector2Int position = tile.Position;
-            Vector2Int max = GetMaxSize();
-            Vector2Int min = GetMinSize();
+            Vector2Int position = tile.GetPosition();
             List<Vector2Int> targetList = new List<Vector2Int>();
-
 
             // Vector Up (0, 1) = North
             // Vector Right (1, 0) = East
@@ -153,49 +158,49 @@ public class Room : MonoBehaviour
             if (position.x == max.x)
             {
                 Vector2Int target = position + new Vector2Int(1, 0);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(position); }
+                if (mapGenerator.CheckPositionVacancy(target) && mapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); if(position.y != max.y && position.y != min.y) doorwayCandidateList.Add(position); }
             }
 
             if (position.x == min.x)
             {
                 Vector2Int target = position + new Vector2Int(-1, 0);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(position); };
+                if (mapGenerator.CheckPositionVacancy(target) && mapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); if (position.y != max.y && position.y != min.y) doorwayCandidateList.Add(position); };
             }
 
             if (position.y == max.y)
             {
                 Vector2Int target = position + new Vector2Int(0, 1);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(position); };
+                if (mapGenerator.CheckPositionVacancy(target) && mapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); if (position.x != max.x && position.x != min.x) doorwayCandidateList.Add(position); };
             }
 
             if (position.y == min.y)
             {
                 Vector2Int target = position + new Vector2Int(0, -1);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(position); };
+                if (mapGenerator.CheckPositionVacancy(target) && mapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); if (position.x != max.x && position.x != min.x) doorwayCandidateList.Add(position); };
             }
 
             if (position.x == max.x && position.y == max.y)
             {
                 Vector2Int target = position + new Vector2Int(1, 1);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) targetList.Add(target);
+                if (mapGenerator.CheckPositionVacancy(target) && mapGenerator.CheckPositionInBounds(target)) targetList.Add(target);
             }
 
             if (position.x == max.x && position.y == min.y)
             {
                 Vector2Int target = position + new Vector2Int(1, -1);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) targetList.Add(target);
+                if (mapGenerator.CheckPositionVacancy(target) && mapGenerator.CheckPositionInBounds(target)) targetList.Add(target);
             }
 
             if (position.x == min.x && position.y == max.y)
             {
                 Vector2Int target = position + new Vector2Int(-1, 1);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) targetList.Add(target);
+                if (mapGenerator.CheckPositionVacancy(target) && mapGenerator.CheckPositionInBounds(target)) targetList.Add(target);
             }
 
             if (position.x == min.x && position.y == min.y) 
             {
                 Vector2Int target = position + new Vector2Int(-1, -1);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) targetList.Add(target);
+                if (mapGenerator.CheckPositionVacancy(target) && mapGenerator.CheckPositionInBounds(target)) targetList.Add(target);
             }
 
             if(targetList.Count > 0)
@@ -204,16 +209,17 @@ public class Room : MonoBehaviour
                 {
                     GameObject newTileModel = Instantiate(tilePrefab, new Vector3(newPosition.x * 5, 0, newPosition.y * 5), Quaternion.identity);
                     Tile newTile = newTileModel.GetComponent<Tile>();
-                    newTile.Type = 1;
-                    newTile.Position = newPosition;
-                    newTile.MapGenerator = MapGenerator;
-                    MapGenerator.AddTile(newTile);
+                    newTile.SetType(1);
+                    newTile.SetPosition(newPosition);
+                    newTile.SetMapGenerator(mapGenerator);
+                    mapGenerator.AddTile(newTile);
                 }
             }     
         }
 
-        Tile newDoorwayTile = MapGenerator.GetTileFromPosition(doorwayCandidateList[Random.Range(0, doorwayCandidateList.Count)]);
-        if (newDoorwayTile != null) { newDoorwayTile.HasDoorway = true; }
+        if(doorwayCandidateList.Count < 1) return;
+        Tile newDoorwayTile = mapGenerator.GetTileFromPosition(doorwayCandidateList[Random.Range(0, doorwayCandidateList.Count)]);
+        if (newDoorwayTile != null) newDoorwayTile.SetHasDoorway(true);
 
     }
 }
