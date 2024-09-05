@@ -34,11 +34,14 @@ public class MapGenerator : MonoBehaviour
         {
             Vector2Int spawnPosition = new Vector2Int(Random.Range(0, mapSize.x), Random.Range(0, mapSize.y));
 
-            GameObject newRoomModel = Instantiate(RoomPrefab, new Vector3(spawnPosition.x * 5, 0, spawnPosition.y * 5), Quaternion.identity);
+            // TODO - Assign this based on TileSize
+            Vector2Int spawnWorldPosition = spawnPosition * 5;
+
+            GameObject newRoomModel = Instantiate(RoomPrefab, new Vector3(spawnWorldPosition.x, 0, spawnWorldPosition.y), Quaternion.identity);
             Room newRoom = newRoomModel.GetComponent<Room>();
             newRoom.MapGenerator = this;
 
-            GameObject newTileModel = Instantiate(TilePrefab, new Vector3(spawnPosition.x * 5, 0, spawnPosition.y * 5), Quaternion.identity);
+            GameObject newTileModel = Instantiate(TilePrefab, new Vector3(spawnWorldPosition.x, 0, spawnWorldPosition.y), Quaternion.identity);
             Tile newTile = newTileModel.GetComponent<Tile>();
             newTile.Type = 0;
             newTile.Position = spawnPosition;
@@ -49,50 +52,33 @@ public class MapGenerator : MonoBehaviour
             tileList.Add(newTile);
             newRoom.AddTile(newTile);
 
-            if (!CheckNeighborVacancy(spawnPosition, newRoom, newTile))
-            {
-                newRoom.Remove();
-            }
+            if (!CheckNeighborVacancy(spawnPosition, newTile)) newRoom.Remove();
+
         }
 
-        IEnumerator Expansion() {
+        List<Room> removingList = new List<Room>();
 
-            for (int i = 0; i < 500; i++)
-            {
-                foreach (Room room in roomList)
-                {
-                    room.AttemptExpansion(); 
-                }
-            }
-
-            yield return new WaitForSeconds(0f);
-
-            List<Room> removingList = new List<Room>();
-
+        for (int i = 0; i < 500; i++)
+        {
             foreach (Room room in roomList)
             {
-                room.OutlineHallways();
-                if(room.roomDimensions.x * room.roomDimensions.y < 6)
-                {
-                    removingList.Add(room);
-                }
+                room.AttemptExpansion(); 
             }
-
-            foreach (Room room in removingList)
-            {
-                room.Remove();
-            }
-
-            foreach(Tile tile in tileList)
-            {
-                tile.UpdateWalls();
-            }
-
         }
-    
-        StartCoroutine(Expansion());
-    }
 
+        foreach (Room room in roomList)
+        {
+            room.OutlineHallways();
+            if(room.roomDimensions.x * room.roomDimensions.y < 6)
+            {
+                removingList.Add(room);
+            }
+        }
+
+        foreach (Room room in removingList) room.Remove();
+        foreach(Tile tile in tileList) tile.UpdateWalls();
+    }
+    
     public void AddTile(Tile tile)
     {
         tileList.Add(tile);
@@ -113,31 +99,29 @@ public class MapGenerator : MonoBehaviour
         roomList.Remove(room);
     }
 
-    public bool CheckNeighborVacancy(Vector2Int position, Room room, Tile tile)
+    public bool CheckNeighborVacancy(Vector2Int position, Tile tile)
     {
         for (int i = -1; i < 2; i++)
         {
             for (int j = -1; j < 2; j++)
             {
                 Vector2Int checkPosition = position + new Vector2Int(i, j);
-
-                if(!CheckPositionInBounds(checkPosition))
-                {
-                    // Filter out all positions out of bounds
-                    return false;
-                }
+                Room room = tile.Room;
 
                 Tile neighborTile = GetTileFromPosition(checkPosition);
 
-                if (neighborTile != null && neighborTile != tile)
-                {
+                // Stop checking if at least one position is out of bounds
+                if (!CheckPositionInBounds(checkPosition)) return false;
 
-                    if (neighborTile.Room != room)
-                    {
-                        // Filter out all tiles that are not part of the own room
-                        return false;
-                    }
-                }
+                // If no neighbor is found continue checking
+                if (neighborTile == null) continue;
+
+                // Tile itself is ignored in the check
+                if (neighborTile == tile) continue;
+
+                // Filter out all tiles that are not part of the own room
+                if (neighborTile.Room != room) return false;
+
             }
         }
 

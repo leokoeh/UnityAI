@@ -114,6 +114,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmartWallSouth
       objectReference: {fileID: 0}
+    - target: {fileID: 2590472262254930547, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 4345984526632254139, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 8419459865744079681, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 8724160045203880373, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -187,6 +203,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmartWallNorth
       objectReference: {fileID: 0}
+    - target: {fileID: 2590472262254930547, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 4345984526632254139, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 8419459865744079681, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 8724160045203880373, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -260,6 +292,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmartWallWest
       objectReference: {fileID: 0}
+    - target: {fileID: 2590472262254930547, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 4345984526632254139, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 8419459865744079681, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 8724160045203880373, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -297,6 +345,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7738723459869606707, guid: f96090ff93b24a24aae6b418081f4e62, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
     - target: {fileID: 8049228320619873970, guid: f96090ff93b24a24aae6b418081f4e62, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -359,6 +411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 7738723459869606707, guid: f96090ff93b24a24aae6b418081f4e62, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
     - target: {fileID: 8049228320619873970, guid: f96090ff93b24a24aae6b418081f4e62, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -461,6 +517,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmartWallEast
       objectReference: {fileID: 0}
+    - target: {fileID: 2590472262254930547, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 4345984526632254139, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 8419459865744079681, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
+    - target: {fileID: 8724160045203880373, guid: 47753cd1a8c86844ea299122a2d2c02d, type: 3}
+      propertyPath: Tile
+      value: 
+      objectReference: {fileID: 7096814925829452930}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

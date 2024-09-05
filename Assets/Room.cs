@@ -98,7 +98,7 @@ public class Room : MonoBehaviour
             {
 
                 Vector2Int target = position + direction;
-                if (MapGenerator.CheckNeighborVacancy(target, this, tile))
+                if (MapGenerator.CheckNeighborVacancy(target, tile))
                 {
                     if ((direction.x != 0 && roomDimensions.x + 1 <= roomDimensions.y * 2) ||
                     (direction.y != 0 && roomDimensions.y + 1 <= roomDimensions.x * 2))
@@ -153,25 +153,25 @@ public class Room : MonoBehaviour
             if (position.x == max.x)
             {
                 Vector2Int target = position + new Vector2Int(1, 0);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(target); }
+                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(position); }
             }
 
             if (position.x == min.x)
             {
                 Vector2Int target = position + new Vector2Int(-1, 0);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(target); };
+                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(position); };
             }
 
             if (position.y == max.y)
             {
                 Vector2Int target = position + new Vector2Int(0, 1);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(target); };
+                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(position); };
             }
 
             if (position.y == min.y)
             {
                 Vector2Int target = position + new Vector2Int(0, -1);
-                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(target); };
+                if (MapGenerator.CheckPositionVacancy(target) && MapGenerator.CheckPositionInBounds(target)) { targetList.Add(target); doorwayCandidateList.Add(position); };
             }
 
             if (position.x == max.x && position.y == max.y)
@@ -209,9 +209,6 @@ public class Room : MonoBehaviour
                     newTile.MapGenerator = MapGenerator;
                     MapGenerator.AddTile(newTile);
                 }
-
-
-
             }     
         }
 
