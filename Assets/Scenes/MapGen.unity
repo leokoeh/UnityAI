@@ -152,14 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d7cf0e06ebd474dbe006dd5726134e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSizeX: 25
-  maxSizeY: 25
-  sizeDeviationMax: 5
+  sizeMax: 22
+  sizeMin: 10
+  roomCountMax: 12
+  roomCountMin: 7
   TilePrefab: {fileID: 3098606125423694395, guid: d922df606c7926f4dbad307fa8caedd1, type: 3}
-  RoomPrefab: {fileID: 3594541652756282338, guid: 5f4badf73c8ab3147b8e815db91f1885, type: 3}
-  roomCountMax: 10
-  roomCountMin: 8
-  mapSize: {x: 0, y: 0}
+  roomPrefab: {fileID: 3594541652756282338, guid: 5f4badf73c8ab3147b8e815db91f1885, type: 3}
 --- !u!4 &28425581
 Transform:
   m_ObjectHideFlags: 0

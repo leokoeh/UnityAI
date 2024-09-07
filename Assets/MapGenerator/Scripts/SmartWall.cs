@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SmartWall : MonoBehaviour
 {
+    [Header("Game Object Configuration")]
     [SerializeField] private GameObject wall;
     [SerializeField] private GameObject doorway;
 
