@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 7071ca5ccafe9544d93964dc74e3ea25
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/CollectOrange/Spectate/CollectOrangeSpectate.unity
+    guid: cc8d10db1e956e3448aa8c01096cfa37
+  - enabled: 1
+    path: Assets/Scenes/Scenarios/CollectOrange/Play/CollectOrangePlay.unity
+    guid: df5b48e509d84a94cb8bd4ea3fbbaa17
   m_configObjects: {}

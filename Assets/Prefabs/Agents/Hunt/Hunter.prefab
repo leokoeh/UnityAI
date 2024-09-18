@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 7
+    VectorObservationSize: 16
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
@@ -155,8 +155,12 @@ MonoBehaviour:
   character: {fileID: 0}
   speed: 0
   prey: {fileID: 0}
-  randomizeRespawnHunter: 0
-  defaultRepsawnHunter: {x: 0, y: 0, z: 0}
+  preyAgent: {fileID: 0}
+  respawnY: 0
+  arenaManager: {fileID: 0}
+  deathBall1: {fileID: 0}
+  deathBall2: {fileID: 0}
+  deathBall3: {fileID: 0}
 --- !u!114 &-7778191057444692967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +191,7 @@ MonoBehaviour:
   m_DetectableTags:
   - Wall
   - Prey
-  - Hunter
+  - Agent
   m_RaysPerDirection: 5
   m_MaxRayDegrees: 45
   m_SphereCastRadius: 0.5

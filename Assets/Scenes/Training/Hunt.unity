@@ -135,6 +135,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 100
@@ -178,7 +190,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1 &332887548
 GameObject:
@@ -284,6 +299,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -100
@@ -327,7 +354,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &371891079
 PrefabInstance:
@@ -340,6 +370,18 @@ PrefabInstance:
     - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_Name
       value: HuntArena
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -384,7 +426,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &404955185
 PrefabInstance:
@@ -398,6 +443,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 200
@@ -441,7 +498,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &453209061
 PrefabInstance:
@@ -455,6 +515,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 200
@@ -498,7 +570,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &524680352
 PrefabInstance:
@@ -511,6 +586,18 @@ PrefabInstance:
     - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_Name
       value: HuntArena
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -555,7 +642,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &590705679
 PrefabInstance:
@@ -568,6 +658,18 @@ PrefabInstance:
     - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_Name
       value: HuntArena
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -612,7 +714,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1 &646864127
 GameObject:
@@ -720,6 +825,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -200
@@ -763,7 +880,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &693053762
 PrefabInstance:
@@ -777,6 +897,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -100
@@ -820,7 +952,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &763329773
 PrefabInstance:
@@ -834,6 +969,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 100
@@ -877,7 +1024,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &865072750
 PrefabInstance:
@@ -891,6 +1041,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -200
@@ -934,7 +1096,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1048323270
 PrefabInstance:
@@ -948,6 +1113,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -100
@@ -991,7 +1168,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1069813875
 PrefabInstance:
@@ -1005,6 +1185,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1048,7 +1236,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1112564663
 PrefabInstance:
@@ -1062,6 +1253,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 200
@@ -1105,7 +1308,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1246618366
 PrefabInstance:
@@ -1119,6 +1325,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 100
@@ -1162,7 +1380,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1319697605
 PrefabInstance:
@@ -1176,6 +1397,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 200
@@ -1219,7 +1452,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1407668951
 PrefabInstance:
@@ -1233,6 +1469,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 100
@@ -1276,7 +1524,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1675282030
 PrefabInstance:
@@ -1290,6 +1541,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1333,7 +1596,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1863803436
 PrefabInstance:
@@ -1347,6 +1613,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 100
@@ -1390,7 +1668,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1908122939
 PrefabInstance:
@@ -1404,6 +1685,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -100
@@ -1447,7 +1740,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1925694756
 PrefabInstance:
@@ -1461,6 +1757,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -200
@@ -1504,7 +1812,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &1989567430
 PrefabInstance:
@@ -1518,6 +1829,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1561,7 +1884,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &2052962283
 PrefabInstance:
@@ -1575,6 +1901,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: HuntArena
       objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1618,7 +1956,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &2089289865
 PrefabInstance:
@@ -1631,6 +1972,18 @@ PrefabInstance:
     - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_Name
       value: HuntArena
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1675,7 +2028,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1001 &2138094916
 PrefabInstance:
@@ -1688,6 +2044,18 @@ PrefabInstance:
     - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_Name
       value: HuntArena
+      objectReference: {fileID: 0}
+    - target: {fileID: 6778387037401950245, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: stage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8575495009717185552, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      propertyPath: EpisodeCounter
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8592294919139320072, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1732,7 +2100,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1565330515094137637, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 32fe1901a0e63ac4d87bc65a0616cbe7, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

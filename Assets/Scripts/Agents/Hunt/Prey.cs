@@ -6,25 +6,28 @@ using UnityEngine;
 public class Prey : Agent
 {
     [Header("Agent Configuration")]
-    public CharacterController character;
-    public float speed;
-    public GameObject hunter;
+    [SerializeField] private CharacterController character;
+    [SerializeField] private float speed;
+    [SerializeField] private GameObject hunter;
+    [SerializeField] private Agent hunterAgent;
 
     [Header("Respawn Configuration")]
-    public bool randomizeRespawnPrey;
-    public Vector3 defaultRepsawnPrey;
+    [SerializeField] private float respawnY;
 
+    [Header("Arena Configuration")]
+    [SerializeField] ArenaManager arenaManager;
+        
+    [Header("Death Ball Configuration")]
+    [SerializeField] private GameObject deathBall1;
+    [SerializeField] private GameObject deathBall2;
+    [SerializeField] private GameObject deathBall3;
+    
     public override void OnEpisodeBegin()
     {
         // Determine respawn position
-        if (randomizeRespawnPrey)
-        {
-            transform.localPosition = new Vector3(Random.Range(-10, 10), defaultRepsawnPrey.y, Random.Range(-10, 10));
-        }
-        else
-        {
-            transform.localPosition = defaultRepsawnPrey;
-        }
+        Transform respawnPosition = arenaManager.respawnPositions[Random.Range(0, arenaManager.respawnPositions.Count)];
+        transform.localPosition = new Vector3(respawnPosition.localPosition.x, respawnY, respawnPosition.localPosition.z);
+        Physics.SyncTransforms();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -37,6 +40,10 @@ public class Prey : Agent
 
         // Observes distance between own and hunter's position
         sensor.AddObservation(Vector3.Distance(transform.localPosition, hunter.transform.localPosition));
+
+        sensor.AddObservation(deathBall1.transform.localPosition);
+        sensor.AddObservation(deathBall2.transform.localPosition);
+        sensor.AddObservation(deathBall3.transform.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -44,15 +51,15 @@ public class Prey : Agent
         // Calculate movement vector based on ContinuousActions
         float moveX = actions.ContinuousActions[0];
         float moveZ = actions.ContinuousActions[1];
-        Vector3 move = new Vector3(moveX, 0, moveZ);
+        Vector3 move = new(moveX, 0, moveZ);
 
         // Move character based on movement vector
         Physics.SyncTransforms();
-        character.Move(move * speed * Time.deltaTime);
+        character.Move(speed * Time.deltaTime * move);
         transform.LookAt(transform.position + move);
 
         // Prey gets tiny reward for existing
-        AddReward(0.0001f);
+        AddReward(0.001f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -67,9 +74,12 @@ public class Prey : Agent
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            // Punishes Agent for touching walls and ends episode 
+            // Punishes Agent for touching walls, rewards hunter and ends each Agent's episode
             AddReward(-1f);
             EndEpisode();
+
+            hunterAgent.AddReward(0.1f);
+            hunterAgent.EndEpisode();
         }
     }
 }

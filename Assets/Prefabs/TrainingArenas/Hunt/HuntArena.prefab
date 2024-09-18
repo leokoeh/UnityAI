@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 931799149149301572, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2506579857382988019, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3534506269723280687, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5996397172157125011, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
       propertyPath: m_Name
       value: HuntArena
@@ -63,6 +75,32 @@ PrefabInstance:
       addedObject: {fileID: 7803580378876639842}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
+--- !u!1 &1978158785680898299 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1609197401354158413, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
+  m_PrefabInstance: {fileID: 947673942085188022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2778905916511262352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3149837312385560358, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
+  m_PrefabInstance: {fileID: 947673942085188022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3842863049982315340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4067392546333668090, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
+  m_PrefabInstance: {fileID: 947673942085188022}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8575495009717185552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8801325783461287334, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
+  m_PrefabInstance: {fileID: 947673942085188022}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa3ae83d33e0e934384808722ead56f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8592294919139320072 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8798669012936480958, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
@@ -82,7 +120,11 @@ PrefabInstance:
       objectReference: {fileID: 2374513199576820076}
     - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
       propertyPath: speed
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
+      propertyPath: respawnY
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
       propertyPath: character
@@ -92,6 +134,26 @@ PrefabInstance:
       propertyPath: preyAgent
       value: 
       objectReference: {fileID: 7842351467782606866}
+    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
+      propertyPath: deathBall1
+      value: 
+      objectReference: {fileID: 1978158785680898299}
+    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
+      propertyPath: deathBall2
+      value: 
+      objectReference: {fileID: 2778905916511262352}
+    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
+      propertyPath: deathBall3
+      value: 
+      objectReference: {fileID: 3842863049982315340}
+    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
+      propertyPath: arenaManager
+      value: 
+      objectReference: {fileID: 8575495009717185552}
+    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
+      propertyPath: doRandomRespawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
       propertyPath: defaultRepsawnHunter.y
       value: 2
@@ -103,6 +165,10 @@ PrefabInstance:
     - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
       propertyPath: randomizeRespawnHunter
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
+      propertyPath: defaultRepsawnPosition.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2206703980415010036, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
       propertyPath: m_LocalScale.x
@@ -174,6 +240,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2206703980415010036, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
   m_PrefabInstance: {fileID: 1907432727869432635}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1184449402732369673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
+  m_PrefabInstance: {fileID: 1907432727869432635}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5214977393460622529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5e0d4f4913fd746bc00f177007d9b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5214977393460622529 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5919944030052227066, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
@@ -201,9 +278,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5214977393460622529}
     - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
+      propertyPath: respawnY
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
       propertyPath: character
       value: 
       objectReference: {fileID: 1823609213475667290}
+    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
+      propertyPath: deathBall1
+      value: 
+      objectReference: {fileID: 1978158785680898299}
+    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
+      propertyPath: deathBall2
+      value: 
+      objectReference: {fileID: 2778905916511262352}
+    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
+      propertyPath: deathBall3
+      value: 
+      objectReference: {fileID: 3842863049982315340}
+    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
+      propertyPath: hunterAgent
+      value: 
+      objectReference: {fileID: 1184449402732369673}
+    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
+      propertyPath: arenaManager
+      value: 
+      objectReference: {fileID: 8575495009717185552}
+    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
+      propertyPath: doRandomRespawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
       propertyPath: defaultRepsawnPrey.y
       value: 1.5
@@ -216,9 +321,17 @@ PrefabInstance:
       propertyPath: randomizeRespawnPrey
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
+      propertyPath: defaultRepsawnPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 982487091867247399, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586529899204977945, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
+      propertyPath: m_BrainParameters.NumStackedVectorObservations
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4412885969042579723, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
       propertyPath: m_Name

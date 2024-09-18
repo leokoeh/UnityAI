@@ -11,6 +11,8 @@ TagManager:
   - Door
   - Button
   - Agent
+  - Food
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - UI
   - Wall
   - Reward
-  - Door
+  - Agent
   - 
   - 
   - 

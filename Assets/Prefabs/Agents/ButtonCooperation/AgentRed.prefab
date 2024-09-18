@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 0
+    VectorObservationSize: 14
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
@@ -557,9 +557,15 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 20000
+  MaxStep: 3000
   character: {fileID: 2771840365901371646}
   speed: 5
+  button1: {fileID: 0}
+  button2: {fileID: 0}
+  respawnY: 1.5
+  buttonRespawnY: 0.55
+  arenaManager: {fileID: 0}
+  teammate: {fileID: 0}
 --- !u!114 &-5430023428177336111
 MonoBehaviour:
   m_ObjectHideFlags: 0
