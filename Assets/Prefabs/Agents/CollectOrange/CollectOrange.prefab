@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 201450366781560699, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 636a1548f754c604188d22529e90cd54, type: 2}
     - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -132,9 +136,6 @@ MonoBehaviour:
   orangeRespawnY: 0
   changeOwnPosition: 1
   arenaManager: {fileID: 0}
-  deathBall1: {fileID: 0}
-  deathBall2: {fileID: 0}
-  deathBall3: {fileID: 0}
 --- !u!114 &-8068839202280857653
 MonoBehaviour:
   m_ObjectHideFlags: 0

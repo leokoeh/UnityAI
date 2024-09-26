@@ -3,7 +3,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
-public class Hunter : Agent
+public class PackHunter : Agent
 {
     [Header("Agent Configuration")]
     [SerializeField] private CharacterController character;
@@ -13,6 +13,10 @@ public class Hunter : Agent
     [SerializeField] private Transform prey;
     [SerializeField] private Agent preyAgent;
 
+    [Header("Teammate Configuration")]
+    [SerializeField] private Transform teammate;
+    [SerializeField] private Agent teammateAgent;
+
     [Header("Respawn Configuration")]
     [SerializeField] private float respawnY;
 
@@ -21,8 +25,6 @@ public class Hunter : Agent
 
     public override void OnEpisodeBegin()
     {
-        arenaManager.EpisodeCounter++;
-
         // Determine respawn position
         RespawnRandomly(transform, respawnY);
         Physics.SyncTransforms();
@@ -33,11 +35,17 @@ public class Hunter : Agent
         // Observes own position
         sensor.AddObservation(transform.localPosition);
 
+        // Observes teammate's position
+        sensor.AddObservation(teammate.localPosition);
+
         // Observes Prey's position
         sensor.AddObservation(prey.localPosition);
 
         // Observes distance between own and Prey's position
         sensor.AddObservation(Vector3.Distance(transform.localPosition, prey.localPosition));
+
+        // Observes distance between teammate's and Prey's position
+        sensor.AddObservation(Vector3.Distance(teammate.localPosition, prey.localPosition));
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -58,7 +66,7 @@ public class Hunter : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        // Allows player to control agent
+        // Allows player to control Agent
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         continuousActions[0] = (Input.GetKey(KeyCode.H) ? 1f : 0f) - (Input.GetKey(KeyCode.F) ? 1f : 0f);
         continuousActions[1] = (Input.GetKey(KeyCode.T) ? 1f : 0f) - (Input.GetKey(KeyCode.G) ? 1f : 0f);
@@ -68,10 +76,13 @@ public class Hunter : Agent
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            // Punishes Agent for touching walls, rewards Prey and ends each Agent's episode
+            // Punishes Agent and teammate for touching walls, rewards prey and ends each Agent's episode
             AddReward(-1f);
             EndEpisode();
-            
+
+            teammateAgent.AddReward(-0.1f);
+            teammateAgent.EndEpisode();
+
             preyAgent.AddReward(0.1f);
             preyAgent.EndEpisode();
         }
@@ -81,9 +92,12 @@ public class Hunter : Agent
     {
         if (collision.gameObject.CompareTag("Prey"))
         {
-            // Rewards hunter for touching prey, punishes prey and ends each Agent's episode
+            // Rewards both Hunters for touching Prey, punishes Prey and ends each Agent's episode
             AddReward(1f);
             EndEpisode();
+
+            teammateAgent.AddReward(1f);
+            teammateAgent.EndEpisode();
 
             preyAgent.AddReward(-1f);
             preyAgent.EndEpisode();

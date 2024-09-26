@@ -3,29 +3,31 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
-public class CollectOrange : Agent
+public class PackPrey : Agent
 {
     [Header("Agent Configuration")]
     [SerializeField] private CharacterController character;
     [SerializeField] private float speed;
 
-    [Header("Orange Configuration")]
-    [SerializeField] private Transform orange;
+    [Header("Hunters Configuration")]
+    [SerializeField] private Transform hunter1;
+    [SerializeField] private Agent hunter1Agent;
+
+    [SerializeField] private Transform hunter2;
+    [SerializeField] private Agent hunter2Agent;
 
     [Header("Respawn Configuration")]
     [SerializeField] private float respawnY;
-    [SerializeField] private float orangeRespawnY;
-    [SerializeField] private bool changeOwnPosition;
 
     [Header("Arena Configuration")]
-    [SerializeField] private ArenaManager arenaManager;
+    [SerializeField] ArenaManager arenaManager;
 
     public override void OnEpisodeBegin()
     {
         arenaManager.EpisodeCounter++;
 
-        // Determine orange's respawn position
-        RespawnRandomly(orange, orangeRespawnY);
+        // Determine respawn position
+        RespawnRandomly(transform, respawnY);
         Physics.SyncTransforms();
     }
 
@@ -34,11 +36,13 @@ public class CollectOrange : Agent
         // Observes own position
         sensor.AddObservation(transform.localPosition);
 
-        // Observes orange's position
-        sensor.AddObservation(orange.localPosition);
+        // Observes both Hunter's positions
+        sensor.AddObservation(hunter1.localPosition);
+        sensor.AddObservation(hunter2.localPosition);
 
-        // Observes distance between own and orange's position
-        sensor.AddObservation(Vector3.Distance(transform.localPosition, orange.localPosition));
+        // Observes distance between own and both Hunter's positions
+        sensor.AddObservation(Vector3.Distance(transform.localPosition, hunter1.localPosition));
+        sensor.AddObservation(Vector3.Distance(transform.localPosition, hunter2.localPosition));
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -48,15 +52,19 @@ public class CollectOrange : Agent
         float moveZ = actions.ContinuousActions[1];
         Vector3 move = new(moveX, 0, moveZ);
 
-        // Move Agent's character based on movement vector
+        // Move character based on movement vector
+        Physics.SyncTransforms();
         character.Move(speed * Time.deltaTime * move);
         transform.LookAt(transform.position + move);
-        Physics.SyncTransforms();
+
+        // Prey gets tiny rewards for existing based on distance to each Hunter
+        AddReward(Vector3.Distance(transform.localPosition, hunter1.localPosition) / 10000f);
+        AddReward(Vector3.Distance(transform.localPosition, hunter2.localPosition) / 10000f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        // Allows player to control Agent via the horizontal and vertical axis, by default, this is WASD
+        // Allows player to control Agent
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         continuousActions[0] = Input.GetAxisRaw("Horizontal");
         continuousActions[1] = Input.GetAxisRaw("Vertical");
@@ -66,24 +74,15 @@ public class CollectOrange : Agent
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            // Punishes Agent for touching walls
-            AddReward(-0.25f);
-
-            // When colliding with walls, a new respawn location is always determined
-            RespawnRandomly(transform, respawnY);
-
+            // Punishes Agent for touching walls, rewards Hunters and ends each Agent's episode
+            AddReward(-1f);
             EndEpisode();
-        }
 
-        if (collision.gameObject.CompareTag("Reward"))
-        {
-            // Rewards Agent for touching the reward (orange)
-            AddReward(1f);
+            hunter1Agent.AddReward(0.1f);
+            hunter1Agent.EndEpisode();
 
-            // Determine a new respawn location only if the changeOwnPosition bool is true, 
-            if (changeOwnPosition) RespawnRandomly(transform, respawnY);
-
-            EndEpisode();
+            hunter2Agent.AddReward(0.1f);
+            hunter2Agent.EndEpisode();
         }
     }
     private void RespawnRandomly(Transform objectTransform, float objectY)
