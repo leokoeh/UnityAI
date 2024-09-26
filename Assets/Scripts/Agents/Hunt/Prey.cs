@@ -41,9 +41,6 @@ public class Prey : Agent
         // Observes distance between own and hunter's position
         sensor.AddObservation(Vector3.Distance(transform.localPosition, hunter.transform.localPosition));
 
-        sensor.AddObservation(deathBall1.transform.localPosition);
-        sensor.AddObservation(deathBall2.transform.localPosition);
-        sensor.AddObservation(deathBall3.transform.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -59,7 +56,7 @@ public class Prey : Agent
         transform.LookAt(transform.position + move);
 
         // Prey gets tiny reward for existing
-        AddReward(0.001f);
+        AddReward(Vector3.Distance(transform.localPosition, hunter.transform.localPosition) / 10000f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)

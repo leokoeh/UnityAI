@@ -13,7 +13,7 @@ public class ArenaManager : MonoBehaviour
     [SerializeField] private List<GameObject> stage3Objects;
     void Start() 
     {
-        if (stage >= 1) 
+        if (stage >= 1 && stage1Objects.Count > 0) 
         {
             foreach(GameObject gameObject in stage1Objects) 
             {
@@ -21,7 +21,7 @@ public class ArenaManager : MonoBehaviour
             }
         }
 
-        if (stage >= 2) 
+        if (stage >= 2 && stage2Objects.Count > 0) 
         {
             foreach(GameObject gameObject in stage2Objects) 
             {
@@ -29,7 +29,7 @@ public class ArenaManager : MonoBehaviour
             }
         }
 
-        if (stage >= 3) 
+        if (stage >= 3 && stage3Objects.Count > 0) 
         {
             foreach(GameObject gameObject in stage3Objects) 
             {

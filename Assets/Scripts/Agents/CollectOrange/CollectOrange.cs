@@ -53,9 +53,9 @@ public class CollectOrange : Agent
         // Observes distance between own and orange's position
         sensor.AddObservation(Vector3.Distance(transform.localPosition, orange.transform.localPosition));
 
-        sensor.AddObservation(deathBall1.transform.localPosition);
-        sensor.AddObservation(deathBall2.transform.localPosition);
-        sensor.AddObservation(deathBall3.transform.localPosition);
+        // sensor.AddObservation(deathBall1.transform.localPosition);
+        // sensor.AddObservation(deathBall2.transform.localPosition);
+        // sensor.AddObservation(deathBall3.transform.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
@@ -84,7 +84,7 @@ public class CollectOrange : Agent
         if (collision.gameObject.CompareTag("Wall"))
         {
             // Punishes agent for touching walls and ends episode 
-            AddReward(-1f);
+            AddReward(-0.25f);
             EndEpisode();
         }
 

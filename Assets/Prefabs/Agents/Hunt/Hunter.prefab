@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BrainParameters:
-    VectorObservationSize: 16
+    VectorObservationSize: 7
     NumStackedVectorObservations: 1
     m_ActionSpec:
       m_NumContinuousActions: 2
@@ -191,7 +191,6 @@ MonoBehaviour:
   m_DetectableTags:
   - Wall
   - Prey
-  - Agent
   m_RaysPerDirection: 5
   m_MaxRayDegrees: 45
   m_SphereCastRadius: 0.5
