@@ -8,10 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4548753430740832145, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 201450366781560699, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -150,9 +146,6 @@ MonoBehaviour:
   hunterAgent: {fileID: 0}
   respawnY: 0
   arenaManager: {fileID: 0}
-  deathBall1: {fileID: 0}
-  deathBall2: {fileID: 0}
-  deathBall3: {fileID: 0}
 --- !u!114 &-2668283130678753877
 MonoBehaviour:
   m_ObjectHideFlags: 0

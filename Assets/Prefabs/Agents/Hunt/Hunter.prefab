@@ -146,9 +146,7 @@ MonoBehaviour:
   preyAgent: {fileID: 0}
   respawnY: 0
   arenaManager: {fileID: 0}
-  deathBall1: {fileID: 0}
-  deathBall2: {fileID: 0}
-  deathBall3: {fileID: 0}
+  particles: {fileID: 6890947798664201518}
 --- !u!114 &-7778191057444692967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,3 +189,8 @@ MonoBehaviour:
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0
+--- !u!198 &6890947798664201518 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9062965686271041687, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+  m_PrefabInstance: {fileID: 2479108198252848569}
+  m_PrefabAsset: {fileID: 0}

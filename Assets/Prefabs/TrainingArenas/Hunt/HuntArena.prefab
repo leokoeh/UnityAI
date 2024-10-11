@@ -87,24 +87,9 @@ PrefabInstance:
       addedObject: {fileID: 7803580378876639842}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
---- !u!1 &1978158785680898299 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1609197401354158413, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
-  m_PrefabInstance: {fileID: 947673942085188022}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2352145487875078769 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3279376674901541831, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
-  m_PrefabInstance: {fileID: 947673942085188022}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2778905916511262352 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3149837312385560358, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
-  m_PrefabInstance: {fileID: 947673942085188022}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3842863049982315340 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4067392546333668090, guid: 4590f28d14f0e6345b8e6da76a698ed2, type: 3}
   m_PrefabInstance: {fileID: 947673942085188022}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8575495009717185552 stripped
@@ -134,10 +119,14 @@ PrefabInstance:
     - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
       propertyPath: prey
       value: 
-      objectReference: {fileID: 2374513199576820076}
+      objectReference: {fileID: 7803580378876639842}
     - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
       propertyPath: speed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
+      propertyPath: MaxStep
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
       propertyPath: respawnY
@@ -151,18 +140,6 @@ PrefabInstance:
       propertyPath: preyAgent
       value: 
       objectReference: {fileID: 7842351467782606866}
-    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
-      propertyPath: deathBall1
-      value: 
-      objectReference: {fileID: 1978158785680898299}
-    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
-      propertyPath: deathBall2
-      value: 
-      objectReference: {fileID: 2778905916511262352}
-    - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
-      propertyPath: deathBall3
-      value: 
-      objectReference: {fileID: 3842863049982315340}
     - target: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
       propertyPath: arenaManager
       value: 
@@ -250,17 +227,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 722983325682496562, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
   m_PrefabInstance: {fileID: 1907432727869432635}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5214977393460622529}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a5e0d4f4913fd746bc00f177007d9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &5214977393460622529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5919944030052227066, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
-  m_PrefabInstance: {fileID: 1907432727869432635}
-  m_PrefabAsset: {fileID: 0}
 --- !u!143 &8206235310304108791 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 7753765329967055820, guid: 3092f49a6907ebf46af25858d26389de, type: 3}
@@ -281,7 +253,11 @@ PrefabInstance:
     - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
       propertyPath: hunter
       value: 
-      objectReference: {fileID: 5214977393460622529}
+      objectReference: {fileID: 353328481898031055}
+    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
+      propertyPath: MaxStep
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
       propertyPath: respawnY
       value: 1.5
@@ -290,18 +266,6 @@ PrefabInstance:
       propertyPath: character
       value: 
       objectReference: {fileID: 1823609213475667290}
-    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
-      propertyPath: deathBall1
-      value: 
-      objectReference: {fileID: 1978158785680898299}
-    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
-      propertyPath: deathBall2
-      value: 
-      objectReference: {fileID: 2778905916511262352}
-    - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
-      propertyPath: deathBall3
-      value: 
-      objectReference: {fileID: 3842863049982315340}
     - target: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
       propertyPath: hunterAgent
       value: 
@@ -392,11 +356,6 @@ CharacterController:
   m_CorrespondingSourceObject: {fileID: 324414955494225213, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
   m_PrefabInstance: {fileID: 2147741226119858279}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2374513199576820076 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4412885969042579723, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
-  m_PrefabInstance: {fileID: 2147741226119858279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7803580378876639842 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8180133716974137861, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
@@ -407,7 +366,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -1073002024126900107, guid: 9c4d840f4e95b6b4296cc0f3f7803710, type: 3}
   m_PrefabInstance: {fileID: 2147741226119858279}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2374513199576820076}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fe07e24350691f45b0db5ddc88857de, type: 3}

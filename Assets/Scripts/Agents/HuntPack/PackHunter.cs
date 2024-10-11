@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PackHunter : Agent
 {
+    // Agent script of Hunter in Cooperation
+
     [Header("Agent Configuration")]
     [SerializeField] private CharacterController character;
     [SerializeField] private float speed;
@@ -22,6 +24,9 @@ public class PackHunter : Agent
 
     [Header("Arena Configuration")]
     [SerializeField] ArenaManager arenaManager;
+
+    [Header("Particle Configuration")]
+    [SerializeField] ParticleSystem particles;
 
     public override void OnEpisodeBegin()
     {
@@ -66,25 +71,22 @@ public class PackHunter : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        // Allows player to control Agent
+        // Allows player to control Agent via the horizontal and vertical axis (WASD and Arrow Keys)
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
-        continuousActions[0] = (Input.GetKey(KeyCode.H) ? 1f : 0f) - (Input.GetKey(KeyCode.F) ? 1f : 0f);
-        continuousActions[1] = (Input.GetKey(KeyCode.T) ? 1f : 0f) - (Input.GetKey(KeyCode.G) ? 1f : 0f);
+        continuousActions[0] = Input.GetAxisRaw("Horizontal");
+        continuousActions[1] = Input.GetAxisRaw("Vertical");
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            // Punishes Agent and teammate for touching walls, rewards prey and ends each Agent's episode
+            // Punishes Agent and teammate for touching walls, rewards Prey and ends Agent's episode
             AddReward(-1f);
             EndEpisode();
 
             teammateAgent.AddReward(-0.1f);
-            teammateAgent.EndEpisode();
-
             preyAgent.AddReward(0.1f);
-            preyAgent.EndEpisode();
         }
     }
 
@@ -94,10 +96,10 @@ public class PackHunter : Agent
         {
             // Rewards both Hunters for touching Prey, punishes Prey and ends each Agent's episode
             AddReward(1f);
-            EndEpisode();
 
             teammateAgent.AddReward(1f);
-            teammateAgent.EndEpisode();
+
+            particles.Play();
 
             preyAgent.AddReward(-1f);
             preyAgent.EndEpisode();

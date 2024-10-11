@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CollectOrange : Agent
 {
+    // Agent script of Prey in Solo
+
     [Header("Agent Configuration")]
     [SerializeField] private CharacterController character;
     [SerializeField] private float speed;
@@ -15,18 +17,17 @@ public class CollectOrange : Agent
     [Header("Respawn Configuration")]
     [SerializeField] private float respawnY;
     [SerializeField] private float orangeRespawnY;
-    [SerializeField] private bool changeOwnPosition;
 
     [Header("Arena Configuration")]
     [SerializeField] private ArenaManager arenaManager;
 
+    [Header("Particle Configuration")]
+    [SerializeField] ParticleSystem particles;
+
     public override void OnEpisodeBegin()
     {
+        RespawnRandomly(transform, respawnY);
         arenaManager.EpisodeCounter++;
-
-        // Determine orange's respawn position
-        RespawnRandomly(orange, orangeRespawnY);
-        Physics.SyncTransforms();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -34,10 +35,10 @@ public class CollectOrange : Agent
         // Observes own position
         sensor.AddObservation(transform.localPosition);
 
-        // Observes orange's position
+        // Observes Orange's position
         sensor.AddObservation(orange.localPosition);
 
-        // Observes distance between own and orange's position
+        // Observes distance between own and Orange's position
         sensor.AddObservation(Vector3.Distance(transform.localPosition, orange.localPosition));
     }
 
@@ -52,38 +53,35 @@ public class CollectOrange : Agent
         character.Move(speed * Time.deltaTime * move);
         transform.LookAt(transform.position + move);
         Physics.SyncTransforms();
+
+        // Agent gets tiny punishment for existing based on its distance to Orange
+        AddReward(Vector3.Distance(transform.localPosition, orange.localPosition) / -10000f);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        // Allows player to control Agent via the horizontal and vertical axis, by default, this is WASD
+        // Allows player to control Agent via the horizontal and vertical axis (WASD and Arrow Keys)
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         continuousActions[0] = Input.GetAxisRaw("Horizontal");
         continuousActions[1] = Input.GetAxisRaw("Vertical");
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
             // Punishes Agent for touching walls
             AddReward(-0.25f);
-
-            // When colliding with walls, a new respawn location is always determined
-            RespawnRandomly(transform, respawnY);
-
             EndEpisode();
         }
 
         if (collision.gameObject.CompareTag("Reward"))
         {
-            // Rewards Agent for touching the reward (orange)
+            // Rewards Agent for touching the reward (Orange)
             AddReward(1f);
+            RespawnRandomly(orange, orangeRespawnY);
 
-            // Determine a new respawn location only if the changeOwnPosition bool is true, 
-            if (changeOwnPosition) RespawnRandomly(transform, respawnY);
-
-            EndEpisode();
+            particles.Play();
         }
     }
     private void RespawnRandomly(Transform objectTransform, float objectY)

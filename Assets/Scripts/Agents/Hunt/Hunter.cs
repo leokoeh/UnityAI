@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Hunter : Agent
 {
+    // Agent script of Hunter in Competition
+
     [Header("Agent Configuration")]
     [SerializeField] private CharacterController character;
     [SerializeField] private float speed;
@@ -19,13 +21,13 @@ public class Hunter : Agent
     [Header("Arena Configuration")]
     [SerializeField] ArenaManager arenaManager;
 
+    [Header("Particle Configuration")]
+    [SerializeField] ParticleSystem particles;
+
     public override void OnEpisodeBegin()
     {
-        arenaManager.EpisodeCounter++;
-
-        // Determine respawn position
         RespawnRandomly(transform, respawnY);
-        Physics.SyncTransforms();
+        arenaManager.EpisodeCounter++;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -58,22 +60,21 @@ public class Hunter : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        // Allows player to control agent
+        // Allows player to control Agent via the horizontal and vertical axis (WASD and Arrow Keys)
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
-        continuousActions[0] = (Input.GetKey(KeyCode.H) ? 1f : 0f) - (Input.GetKey(KeyCode.F) ? 1f : 0f);
-        continuousActions[1] = (Input.GetKey(KeyCode.T) ? 1f : 0f) - (Input.GetKey(KeyCode.G) ? 1f : 0f);
+        continuousActions[0] = Input.GetAxisRaw("Horizontal");
+        continuousActions[1] = Input.GetAxisRaw("Vertical");
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            // Punishes Agent for touching walls, rewards Prey and ends each Agent's episode
+            // Punishes Agent for touching walls, rewards Prey and ends each Hunter's episode
             AddReward(-1f);
             EndEpisode();
-            
+
             preyAgent.AddReward(0.1f);
-            preyAgent.EndEpisode();
         }
     }
 
@@ -81,9 +82,10 @@ public class Hunter : Agent
     {
         if (collision.gameObject.CompareTag("Prey"))
         {
-            // Rewards hunter for touching prey, punishes prey and ends each Agent's episode
+            // Rewards hunter for touching prey, punishes prey and ends Prey's episode
             AddReward(1f);
-            EndEpisode();
+
+            particles.Play();
 
             preyAgent.AddReward(-1f);
             preyAgent.EndEpisode();

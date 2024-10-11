@@ -78,6 +78,11 @@ CharacterController:
   m_CorrespondingSourceObject: {fileID: 5331531582319863413, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
   m_PrefabInstance: {fileID: 6656196193922973191}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &2421125060630191760 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9062965686271041687, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+  m_PrefabInstance: {fileID: 6656196193922973191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3179503212847582276 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8088555638686986819, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
@@ -134,8 +139,8 @@ MonoBehaviour:
   orange: {fileID: 0}
   respawnY: 0
   orangeRespawnY: 0
-  changeOwnPosition: 1
   arenaManager: {fileID: 0}
+  particles: {fileID: 2421125060630191760}
 --- !u!114 &-8068839202280857653
 MonoBehaviour:
   m_ObjectHideFlags: 0

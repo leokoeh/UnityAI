@@ -93,6 +93,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1578109878628551047}
   m_SourcePrefab: {fileID: 100100000, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+--- !u!198 &4807380130416557160 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9062965686271041687, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+  m_PrefabInstance: {fileID: 4571471948248423679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5706469727915290300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8088555638686986819, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
@@ -143,15 +148,16 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 5000
   character: {fileID: 8542279824527407754}
-  speed: 2.5
+  speed: 4
   prey: {fileID: 0}
   preyAgent: {fileID: 0}
   teammate: {fileID: 0}
   teammateAgent: {fileID: 0}
   respawnY: 2
   arenaManager: {fileID: 0}
+  particles: {fileID: 4807380130416557160}
 --- !u!114 &6730334832181668793
 MonoBehaviour:
   m_ObjectHideFlags: 0

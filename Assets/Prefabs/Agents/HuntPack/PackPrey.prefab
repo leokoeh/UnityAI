@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 636a1548f754c604188d22529e90cd54, type: 2}
+    - target: {fileID: 4231177016444460332, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 636a1548f754c604188d22529e90cd54, type: 2}
     - target: {fileID: 4393338751842869581, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -131,7 +135,7 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 5000
   character: {fileID: 4395309970711536990}
   speed: 5
   hunter1: {fileID: 0}
@@ -140,6 +144,7 @@ MonoBehaviour:
   hunter2Agent: {fileID: 0}
   respawnY: 1.5
   arenaManager: {fileID: 0}
+  particles: {fileID: 631700071874864060}
 --- !u!114 &7723085097430822491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +188,11 @@ MonoBehaviour:
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0
+--- !u!198 &631700071874864060 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9062965686271041687, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}
+  m_PrefabInstance: {fileID: 8431337291494834987}
+  m_PrefabAsset: {fileID: 0}
 --- !u!143 &4395309970711536990 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 5331531582319863413, guid: 8ccdafbe62f74914998a3dd3987542b1, type: 3}

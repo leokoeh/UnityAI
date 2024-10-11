@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PackPrey : Agent
 {
+    // Agent script of Prey in Cooperation
+
     [Header("Agent Configuration")]
     [SerializeField] private CharacterController character;
     [SerializeField] private float speed;
@@ -24,6 +26,8 @@ public class PackPrey : Agent
 
     public override void OnEpisodeBegin()
     {
+        Physics.SyncTransforms();
+
         arenaManager.EpisodeCounter++;
 
         // Determine respawn position
@@ -64,25 +68,22 @@ public class PackPrey : Agent
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
-        // Allows player to control Agent
+        // Allows player to control Agent via the horizontal and vertical axis (WASD and Arrow Keys)
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         continuousActions[0] = Input.GetAxisRaw("Horizontal");
         continuousActions[1] = Input.GetAxisRaw("Vertical");
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            // Punishes Agent for touching walls, rewards Hunters and ends each Agent's episode
+            // Punishes Agent for touching walls, rewards Hunters and ends Prey's episode
             AddReward(-1f);
             EndEpisode();
 
             hunter1Agent.AddReward(0.1f);
-            hunter1Agent.EndEpisode();
-
             hunter2Agent.AddReward(0.1f);
-            hunter2Agent.EndEpisode();
         }
     }
     private void RespawnRandomly(Transform objectTransform, float objectY)
